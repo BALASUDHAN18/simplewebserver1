@@ -22,43 +22,47 @@ Testing the webserver.
 
 ## PROGRAM:
 ```
-from http.server import HTTPServer, BaseHTTPRequestHandler
+NAME:P.BALASUDHAN
+REG NO:212222240017
 
-# HTML content with a list of the top 5 revenue-generating companies
+
+from http.server import HTTPServer, BaseHTTPRequestHandler
 content = """
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Top 5 Revenue-Generating Companies</title>
+<title>My webserver</title>
 </head>
 <body>
-    <h1>Top 5 Revenue-Generating Companies</h1>
-    <ol>
-        <li>Apple</li>
-        <li>Saudi</li>
-        <li>Amazon</li>
-        <li>Microsoft</li>
-        <li>Google</li>
-    </ol>
+<h2 align="center">Top 5 revenue companies </h2>
+<hr>
+<ol>
+<h3>
+<li>apple</li>
+<li>amazon</li>
+<li>Microsoft</li>
+<li>alphabet</li>
+<li>meta</li>
+</h3>
+</ol>
 </body>
 </html>
 """
-
-class MyHandler(BaseHTTPRequestHandler):
+class myhandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        print("Request received")
+        print("request received")
         self.send_response(200)
-        self.send_header('Content-type', 'text/html; charset=utf-8')
+        self.send_header('content-type', 'text/html; charset=utf-8')
         self.end_headers()
         self.wfile.write(content.encode())
-
-server_address = ('', 80)
-httpd = HTTPServer(server_address, MyHandler)
-print("My webserver is running...")
+server_address = ('',8000)
+httpd = HTTPServer(server_address,myhandler)
+print("my webserver is running...")
 httpd.serve_forever()
 ```
 
 ## OUTPUT:
-![Screenshot 2023-10-07 154210](https://github.com/BALASUDHAN18/simplewebserver1/assets/118807740/de41aa75-f20c-4372-b2c2-e2555c047332)
+![image](https://github.com/BALASUDHAN18/simplewebserver1/assets/118807740/4953dbe1-b844-4d1b-b4e1-853bb8cfdd7a)
+
 ## RESULT:
 The program for implementing simple webserver is executed successfully.
